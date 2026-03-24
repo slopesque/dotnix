@@ -22,24 +22,6 @@
         "type": "github"
       }
     },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1769996383,
-        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -142,25 +124,39 @@
         "type": "github"
       }
     },
-    "mediatek-m6639-module": {
+    "mediatek-mt7927-dkms": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774029644,
+        "narHash": "sha256-iBD01qtYFcnq//+dRgxA6leXqCGqCVgrv/jH/OU9NLc=",
+        "owner": "jetm",
+        "repo": "mediatek-mt7927-dkms",
+        "rev": "55185fe94a7c743f5ef1df44f21b22a7dd6d5b79",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jetm",
+        "ref": "v2.7-1",
+        "repo": "mediatek-mt7927-dkms",
+        "type": "github"
+      }
+    },
+    "mt7927-nixos": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "mediatek-mt7927-dkms": "mediatek-mt7927-dkms",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1771063010,
-        "narHash": "sha256-akNsqrf4+jgDZkxK79al6psNSkeOvkB2rx46sngNZoE=",
-        "owner": "clemenscodes",
-        "repo": "linux-mediatek-mt6639-bluetooth-kernel-module",
-        "rev": "41c37cc9fd6eb7cae104034b07e9e131a62c6263",
-        "type": "github"
+        "lastModified": 1774316809,
+        "narHash": "sha256-1rhzbSPOOfJXDASJviSNoQsvAbEc3VbrCqL3VQfci9w=",
+        "path": "/home/shrek/src/mt7927-nixos",
+        "type": "path"
       },
       "original": {
-        "owner": "clemenscodes",
-        "repo": "linux-mediatek-mt6639-bluetooth-kernel-module",
-        "type": "github"
+        "path": "/home/shrek/src/mt7927-nixos",
+        "type": "path"
       }
     },
     "nixpkgs": {
@@ -178,27 +174,12 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1769909678,
-        "narHash": "sha256-cBEymOf4/o3FD5AZnzC3J9hLbiZ+QDT/KDuyHXVJOpM=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "72716169fe93074c333e8d0173151350670b824c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "dotfiles": "dotfiles",
         "home-manager": "home-manager_2",
         "hypryaml": "hypryaml",
-        "mediatek-m6639-module": "mediatek-m6639-module",
+        "mt7927-nixos": "mt7927-nixos",
         "nixpkgs": "nixpkgs"
       }
     },

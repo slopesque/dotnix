@@ -15,8 +15,8 @@
       url = "github:mccreemainwoody/hypryaml";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mediatek-m6639-module = {
-      url = "github:clemenscodes/linux-mediatek-mt6639-bluetooth-kernel-module";
+    mt7927-nixos = {
+      url = "path:/home/shrek/src/mt7927-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
