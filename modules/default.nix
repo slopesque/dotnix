@@ -1,3 +1,3 @@
 {
-    imports = [ ./lib ];
+  imports = [ ./lib ];
 }

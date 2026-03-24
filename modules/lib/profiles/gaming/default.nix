@@ -1,6 +1,6 @@
 {
-    imports = [
-        ./heroic.nix
-        ./steam.nix
-    ];
+  imports = [
+    ./heroic.nix
+    ./steam.nix
+  ];
 }

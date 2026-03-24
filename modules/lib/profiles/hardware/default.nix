@@ -1,7 +1,7 @@
 {
-    imports = [
-        ./bluetooth.nix
-        ./cuda.nix
-        ./nvidia.nix
-    ];
+  imports = [
+    ./bluetooth.nix
+    ./cuda.nix
+    ./nvidia.nix
+  ];
 }

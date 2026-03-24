@@ -1,6 +1,6 @@
 {
-    imports = [
-        ./docker.nix
-        ./qemu.nix
-    ];
+  imports = [
+    ./docker.nix
+    ./qemu.nix
+  ];
 }

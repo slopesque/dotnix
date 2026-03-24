@@ -1,18 +1,17 @@
 {
-    nixpkgs,
-    mediatek-m6639-module,
-    modules,
-    ...
-} @ inputs :
-
+  nixpkgs,
+  mediatek-m6639-module,
+  modules,
+  ...
+}@inputs:
 let
-    system = "x86_64-linux";
+  system = "x86_64-linux";
 in
-    nixpkgs.lib.nixosSystem {
-        system = system;
-        specialArgs = { inherit inputs system; };
-        modules = modules ++ [
-            ./configuration.nix
-            mediatek-m6639-module.nixosModules.default
-        ];
-    }
+nixpkgs.lib.nixosSystem {
+  system = system;
+  specialArgs = { inherit inputs system; };
+  modules = modules ++ [
+    ./configuration.nix
+    mediatek-m6639-module.nixosModules.default
+  ];
+}

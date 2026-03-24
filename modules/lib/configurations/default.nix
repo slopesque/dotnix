@@ -1,3 +1,3 @@
 {
-    imports = [ ./sudo.nix ];
+  imports = [ ./sudo.nix ];
 }

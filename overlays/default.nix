@@ -1,3 +1,3 @@
 {
-    imports = [ ./hypryaml.nix ];
+  imports = [ ./hypryaml.nix ];
 }
