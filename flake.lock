@@ -149,14 +149,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1774316809,
-        "narHash": "sha256-1rhzbSPOOfJXDASJviSNoQsvAbEc3VbrCqL3VQfci9w=",
-        "path": "/home/shrek/src/mt7927-nixos",
-        "type": "path"
+        "lastModified": 1774566607,
+        "narHash": "sha256-3LCoGVqNMGGlGxgJZLPa+J6IzPUAgiDFLacgwn8NU78=",
+        "owner": "mccreemainwoody",
+        "repo": "mt7927-nixos",
+        "rev": "b6d58097c6019b28776138ddc574f49acdb9f5f0",
+        "type": "github"
       },
       "original": {
-        "path": "/home/shrek/src/mt7927-nixos",
-        "type": "path"
+        "owner": "mccreemainwoody",
+        "ref": "main_custom",
+        "repo": "mt7927-nixos",
+        "type": "github"
       }
     },
     "nixpkgs": {

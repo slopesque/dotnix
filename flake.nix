@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mt7927-nixos = {
-      url = "path:/home/shrek/src/mt7927-nixos";
+      url = "github:mccreemainwoody/mt7927-nixos/main_custom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
