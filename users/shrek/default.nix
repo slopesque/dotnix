@@ -1,10 +1,12 @@
 {
   config,
   lib,
+  pkgs,
   inputs,
   ...
 }@_:
 let
+  inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.my.users.shrek;
   dotfiles = inputs.dotfiles;
 in
@@ -40,7 +42,7 @@ in
     home-manager.users.shrek = {
       imports = [
         ./home.nix
-        dotfiles.homeModules.dotfiles
+        dotfiles.homeModules.${system}.dotfiles
       ];
     };
   };

@@ -7,15 +7,18 @@
   home.homeDirectory = "/home/shrek";
   home.my-dotfiles = {
     enable = true;
-    overrides = {
-      hyprland = {
-        extras = ''
-          exec-once = fcitx5 -d
-        '';
-        extras-env = ''
-          env = EDITOR,nvim
-          env = VISUAL,nvim
-        '';
+
+    packages.hypr = {
+      overrides = {
+        hyprland = {
+          extras = ''
+            exec-once = fcitx5 -d
+          '';
+          extras-env = ''
+            env = EDITOR,nvim
+            env = VISUAL,nvim
+          '';
+        };
       };
     };
   };
@@ -70,6 +73,7 @@
       ];
     withNodeJs = true;
     withPython3 = true;
+    withRuby = false;
   };
   programs.nushell.enable = true;
   programs.uv.enable = true;
