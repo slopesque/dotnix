@@ -29,6 +29,7 @@
     hypridle
     hyprpaper
     hypryaml
+    nushell
     rustup
 
     bitwarden-desktop
@@ -71,11 +72,11 @@
         black
         pylint
       ];
+    sideloadInitLua = true;
     withNodeJs = true;
     withPython3 = true;
     withRuby = false;
   };
-  programs.nushell.enable = true;
   programs.uv.enable = true;
   programs.waybar.enable = true;
 
