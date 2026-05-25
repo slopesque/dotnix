@@ -37,6 +37,7 @@
     dunst
     evince
     grim
+    libnotify
     pavucontrol
     pcmanfm
     rofi
