@@ -1,0 +1,43 @@
+# Based-on: https://github.com/ChrisPerkinsUK/docker-compose-gogs/blob/master/docker-compose.yml
+
+services:
+  gogs:
+    image: gogs/gogs:next-0.14.2
+
+    # This registers the containers hostname on the containers internal
+    # /etc/hosts file as ´gogs.chris-prkins.uk´ it doesn´t need to be
+    # set to the sites external domainname and won´t influence incoming
+    # external trafic. This is best done using a reverse proxy controler
+    # (voir nginx)
+    hostname: gogs.skibidi.fr
+
+    ports:
+      - "10022:22"
+      - "13000:3000"
+    volumes:
+      - ./data:/data
+    networks:
+      - gogsnet_public
+      - gogsnet_private
+
+  postgres:
+    image: postgres:10.5-alpine
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+    networks:
+      - gogsnet_private
+
+networks: 
+  gogsnet_public:
+    name: gogsnet_public
+    driver: bridge
+  gogsnet_private:
+
+volumes:
+  postgres_data:

@@ -1,0 +1,25 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    networks:
+      - ollama_public
+    volumes:
+      - ollama_models:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: always
+
+networks:
+  ollama_public:
+    name: ollama_public
+    driver: bridge
+
+volumes:
+  ollama_models:
