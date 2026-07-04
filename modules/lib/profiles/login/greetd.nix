@@ -6,6 +6,18 @@
 }@_:
 let
   cfg = config.my.profiles.login.greetd;
+
+  default_theme = [
+    "--asterisks"
+    "--kb-command 10"
+    "--kb-sessions 11"
+    "--kb-power 12"
+    "--issue"
+    "--remember"
+    "--remember-session"
+    "--theme \"border=magenta;container=darkgrey;text=magenta;prompt=magenta;time=green;action=lightblue;button=blue;input=yellow\""
+    "--time"
+  ];
 in
 {
   options = {
@@ -19,17 +31,7 @@ in
 
       theme = lib.mkOption {
         type = lib.types.str;
-        default = ''
-          --asterisks \
-          --kb-command 10 \
-          --kb-sessions 11 \
-          --kb-power 12 \
-          --issue \
-          --remember \
-          --remember-session \
-          --theme "border=magenta;container=darkgrey;text=magenta;prompt=magenta;time=green;action=lightblue;button=blue;input=yellow" \
-          --time
-        '';
+        default = builtins.concatStringsSep " " default_theme;
         description = "Set the theme to use on tuigreet.";
       };
 
