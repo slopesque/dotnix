@@ -13,6 +13,12 @@
     };
   };
 
+  hardware.mediatek-mt7927 = {
+    enable = true;
+    enableWifi = true;
+    enableBluetooth = true;
+  };
+
   networking = {
     hostName = "nixos-btw";
     networkmanager.enable = true;
@@ -76,11 +82,6 @@
   };
 
   programs.nix-ld.enable = true;
-
-  mt6639 = {
-    enable = true;
-    archive = ./mtkbt.dat;
-  };
 
   nix.settings.experimental-features = [
     "nix-command"

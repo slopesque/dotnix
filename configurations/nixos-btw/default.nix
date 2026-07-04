@@ -1,7 +1,7 @@
 {
   nixpkgs,
-  mediatek-m6639-module,
   modules,
+  mt7927-nixos,
   ...
 }@inputs:
 let
@@ -11,7 +11,7 @@ nixpkgs.lib.nixosSystem {
   system = system;
   specialArgs = { inherit inputs system; };
   modules = modules ++ [
+    mt7927-nixos.nixosModules.default
     ./configuration.nix
-    mediatek-m6639-module.nixosModules.default
   ];
 }

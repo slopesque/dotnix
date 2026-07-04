@@ -32,7 +32,12 @@
     nushell
     rustup
 
-    bitwarden-desktop
+    (bitwarden-desktop.override {
+        electron_39 = electron_39.overrideAttrs (oldAttrs: {
+            # NOTE: Electron 3.9 is EOL, this should be checked overttime
+            meta = oldAttrs.meta // { knownVulnerabilities = []; };
+        });
+    })
     brave
     dunst
     evince
