@@ -14,7 +14,7 @@ in
 
       lsp.package = lib.mkOption {
         type = lib.types.package;
-        default = pkgs.nixd;
+        default = pkgs.nil;
         description = "Package to use as Nix LSP in text editors.";
       };
 
