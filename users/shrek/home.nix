@@ -31,8 +31,8 @@
     hyprshot
     hyprshutdown
     hypryaml
-    libreoffice
     nushell
+    rclone
     rustup
 
     (bitwarden-desktop.override {
@@ -48,6 +48,7 @@
     evince
     grim
     libnotify
+    libreoffice
     pavucontrol
     pcmanfm
     rofi
