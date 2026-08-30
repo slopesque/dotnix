@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hypryaml = {
-      url = "github:slopesque/hypryaml";
+      url = "github:slopesque/hypryaml/develop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mt7927-nixos = {

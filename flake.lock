@@ -42,10 +42,7 @@
     },
     "flake-utils_2": {
       "inputs": {
-        "systems": [
-          "hypryaml",
-          "systems"
-        ]
+        "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -107,19 +104,19 @@
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "systems": "systems_2"
+        ]
       },
       "locked": {
-        "lastModified": 1771418056,
-        "narHash": "sha256-mKZb1vi8u8JAOxkJ4lb2SIhjilmNp8OfbWhouTZLrD4=",
+        "lastModified": 1784722480,
+        "narHash": "sha256-xCZCq96vvQdzT9t1zmtTDvrNGnagA/39/AgBP0ynWCs=",
         "owner": "slopesque",
         "repo": "hypryaml",
-        "rev": "e190ff751736ed667bb189926e9e2fb36d59cbc9",
+        "rev": "07316f64aec5f93c47073d39c34fe3516f7c65b4",
         "type": "github"
       },
       "original": {
         "owner": "slopesque",
+        "ref": "develop",
         "repo": "hypryaml",
         "type": "github"
       }
@@ -210,8 +207,9 @@
         "type": "github"
       },
       "original": {
-        "id": "systems",
-        "type": "indirect"
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },

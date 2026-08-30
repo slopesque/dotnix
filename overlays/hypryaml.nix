@@ -1,15 +1,9 @@
-{
-  inputs,
-  system,
-  ...
-}@_:
+{ inputs, ... }:
 let
   hypryaml = inputs.hypryaml;
 in
 {
   nixpkgs.overlays = [
-    (final: prev: {
-      hypryaml = hypryaml.packages.${system}.default;
-    })
+    hypryaml.overlays.default
   ];
 }
