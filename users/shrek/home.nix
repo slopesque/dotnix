@@ -12,11 +12,14 @@
       overrides = {
         hyprland = {
           extras = ''
-            exec-once = fcitx5 -d
+            hl.exec_cmd('fcitx5')
           '';
           extras-env = ''
-            env = EDITOR,nvim
-            env = VISUAL,nvim
+            return function(_)
+              local editor = 'nvim'
+              hl.env('EDITOR', editor)
+              hl.env('VISUAL', editor)
+            end
           '';
         };
       };
@@ -35,14 +38,7 @@
     rclone
     rustup
 
-    (bitwarden-desktop.override {
-      electron_39 = electron_39.overrideAttrs (oldAttrs: {
-        # NOTE: Electron 3.9 is EOL, this should be checked overttime
-        meta = oldAttrs.meta // {
-          knownVulnerabilities = [ ];
-        };
-      });
-    })
+    bitwarden-desktop
     brave
     dunst
     evince
@@ -54,6 +50,7 @@
     rofi
     slurp
     spotify
+    thunderbird
     wvkbd
   ];
 
@@ -75,6 +72,7 @@
     extraPackages = with pkgs; [
       gcc
       ripgrep
+      tree-sitter
     ];
     extraPython3Packages =
       pyPkgs: with pyPkgs; [
