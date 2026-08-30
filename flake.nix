@@ -8,15 +8,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dotfiles = {
-      url = "github:mccreemainwoody/dotfiles";
+      url = "github:slopesque/dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hypryaml = {
-      url = "github:mccreemainwoody/hypryaml";
+      url = "github:slopesque/hypryaml";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mt7927-nixos = {
-      url = "github:mccreemainwoody/mt7927-nixos/main_custom";
+      url = "github:slopesque/mt7927-nixos/main_custom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -42,7 +42,6 @@
     in
     {
       formatter.${devSystem} = nixpkgs.legacyPackages.${devSystem}.nixfmt;
-
       nixosConfigurations = import ./configurations allInputs;
     };
 }
