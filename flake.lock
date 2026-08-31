@@ -121,51 +121,13 @@
         "type": "github"
       }
     },
-    "mediatek-mt7927-dkms": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782427454,
-        "narHash": "sha256-jyFdqvBHrARDwPxBv1rxiQj0LVAh2IF22oTIibLWmpI=",
-        "owner": "jetm",
-        "repo": "mediatek-mt7927-dkms",
-        "rev": "341c875b57334683b2dd7d514df55a350278944c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jetm",
-        "repo": "mediatek-mt7927-dkms",
-        "type": "github"
-      }
-    },
-    "mt7927-nixos": {
-      "inputs": {
-        "mediatek-mt7927-dkms": "mediatek-mt7927-dkms",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783174569,
-        "narHash": "sha256-JvhYAKNDZykjls/mUQ1/qK/s1sBNTjNGCgTNI6pNckA=",
-        "owner": "slopesque",
-        "repo": "mt7927-nixos",
-        "rev": "389ce1bad960d455c3cfa6354a7f350fbaa22273",
-        "type": "github"
-      },
-      "original": {
-        "owner": "slopesque",
-        "ref": "main_custom",
-        "repo": "mt7927-nixos",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1787900134,
-        "narHash": "sha256-5GWj0FI2uOwKNpXkmpWrSFDe1rCaNBCUQ8d+HDtFQPI=",
-        "rev": "83199d0d373dd3ac2b9a1996b1d0263f76ab7a4c",
+        "lastModified": 1788039129,
+        "narHash": "sha256-q/WSLUzcry6IHERr2wZ/Si63RvoHyez7AZ6P+oLDJ5k=",
+        "rev": "d2f67949798825fe853f7c5d0492b8bf016d3f88",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1063296.83199d0d373d/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1064150.d2f679497988/nixexprs.tar.xz"
       },
       "original": {
         "id": "nixpkgs",
@@ -178,7 +140,6 @@
         "dotfiles": "dotfiles",
         "home-manager": "home-manager_2",
         "hypryaml": "hypryaml",
-        "mt7927-nixos": "mt7927-nixos",
         "nixpkgs": "nixpkgs"
       }
     },

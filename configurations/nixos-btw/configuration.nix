@@ -5,18 +5,17 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
+    kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
+
+    kernel.customFirmware.mt7927 = {
+      enable = true;
+      blobFolder = ./firmware;
+    };
 
     loader = {
       limine.enable = true;
       efi.canTouchEfiVariables = true;
     };
-  };
-
-  hardware.mediatek-mt7927 = {
-    enable = true;
-    enableWifi = true;
-    enableBluetooth = true;
   };
 
   networking = {

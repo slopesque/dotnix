@@ -15,10 +15,6 @@
       url = "github:slopesque/hypryaml/develop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mt7927-nixos = {
-      url = "github:slopesque/mt7927-nixos/main_custom";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

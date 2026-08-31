@@ -1,7 +1,6 @@
 {
   nixpkgs,
   modules,
-  mt7927-nixos,
   ...
 }@inputs:
 let
@@ -10,8 +9,5 @@ in
 nixpkgs.lib.nixosSystem {
   system = system;
   specialArgs = { inherit inputs system; };
-  modules = modules ++ [
-    mt7927-nixos.nixosModules.default
-    ./configuration.nix
-  ];
+  modules = modules ++ [ ./configuration.nix ];
 }

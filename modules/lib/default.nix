@@ -1,6 +1,7 @@
 {
   imports = [
     ./configurations
+    ./kernel
     ./profiles
   ];
 }
