@@ -63,6 +63,14 @@
         };
       };
 
+      services = {
+        llama-cpp = {
+          enable = true;
+          vulkanSupport = true;
+          cudaSupport = true;
+        };
+      };
+
       toolchain.enable = true;
 
       vim.enable = true;

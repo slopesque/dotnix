@@ -4,6 +4,7 @@
     ./graphical
     ./hardware
     ./login
+    ./services
     ./virtualisation
     ./core.nix
     ./toolchain.nix
