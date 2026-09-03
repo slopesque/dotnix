@@ -52,10 +52,13 @@
     spotify
     thunderbird
     wvkbd
-  ];
 
-  xdg.configFile."openxr/1/active_runtime.json".source =
-    "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    roboto
+    nerd-fonts.jetbrains-mono
+  ];
 
   programs.btop.enable = true;
   programs.carapace.enable = true;
@@ -91,6 +94,27 @@
   programs.waybar.enable = true;
 
   services.hypridle.enable = true;
+
+  fonts.fontconfig.enable = true;
+
+  gtk = {
+    enable = true;
+    colorScheme = "dark";
+  };
+
+  xdg = {
+    enable = true;
+
+    configFile."openxr/1/active_runtime.json".source =
+      "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+
+    mimeApps = {
+      enable = true;
+      defaultApplicationPackages = with pkgs; [
+        evince
+      ];
+    };
+  };
 
   home.stateVersion = "25.11";
 }
