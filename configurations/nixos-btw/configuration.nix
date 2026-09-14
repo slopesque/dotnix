@@ -50,6 +50,7 @@
         bluetooth.enable = true;
         cuda.enable = true;
         nvidia.enable = true;
+        video.enable = true;
       };
 
       login = {

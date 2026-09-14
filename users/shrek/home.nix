@@ -1,4 +1,4 @@
-{ pkgs, ... }@_:
+{ config, pkgs, ... }@_:
 # TODO: implement conditional implementation if :
 #           - system has config.my.profiles.graphical.wayland enabled
 #           - system has config.my.profiles.graphical.hyprland enabled
@@ -40,6 +40,7 @@
 
     bitwarden-desktop
     brave
+    cameractrls-gtk4
     dunst
     evince
     grim
@@ -49,6 +50,7 @@
     pcmanfm
     rofi
     slurp
+    snapshot
     spotify
     thunderbird
     wvkbd
@@ -112,7 +114,16 @@
       enable = true;
       defaultApplicationPackages = with pkgs; [
         evince
+        feh
       ];
+    };
+
+    userDirs = {
+      enable = true;
+      createDirectories = false;
+      setSessionVariables = false;
+      pictures = "${config.home.homeDirectory}/Pictures";
+      videos = "${config.home.homeDirectory}/Videos";
     };
   };
 

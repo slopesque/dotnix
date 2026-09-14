@@ -3,5 +3,6 @@
     ./bluetooth.nix
     ./cuda.nix
     ./nvidia.nix
+    ./video.nix
   ];
 }
