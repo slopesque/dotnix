@@ -9,6 +9,7 @@ let
 
   default_theme = [
     "--asterisks"
+    "--background doom"
     "--kb-command 10"
     "--kb-sessions 11"
     "--kb-power 12"

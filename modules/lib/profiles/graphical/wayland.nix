@@ -22,17 +22,6 @@ in
   config = lib.mkIf cfg.enable {
     my.profiles.graphical.sound.enable = true;
 
-    # NOTE: may need a better way to be defined in the future
-    #       (we place it here for now)
-    i18n.inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5.addons = with pkgs; [
-        qt6Packages.fcitx5-chinese-addons
-        fcitx5-gtk
-      ];
-    };
-
     services.xserver = {
       enable = true;
       videoDrivers = [

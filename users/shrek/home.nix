@@ -1,4 +1,8 @@
-{ config, pkgs, ... }@_:
+{
+  config,
+  pkgs,
+  ...
+}@_:
 # TODO: implement conditional implementation if :
 #           - system has config.my.profiles.graphical.wayland enabled
 #           - system has config.my.profiles.graphical.hyprland enabled
@@ -11,9 +15,6 @@
     packages.hypr = {
       overrides = {
         hyprland = {
-          extras = ''
-            hl.exec_cmd('fcitx5')
-          '';
           extras-env = ''
             return function(_)
               local editor = 'nvim'
@@ -35,6 +36,7 @@
     hyprshutdown
     hypryaml
     nushell
+    pi-coding-agent
     rclone
     rustup
 
@@ -54,6 +56,7 @@
     spotify
     thunderbird
     wvkbd
+    xournalpp
 
     noto-fonts
     noto-fonts-cjk-sans
@@ -124,6 +127,19 @@
       setSessionVariables = false;
       pictures = "${config.home.homeDirectory}/Pictures";
       videos = "${config.home.homeDirectory}/Videos";
+    };
+  };
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      systemd.enable = false;
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-gtk
+        qt6Packages.fcitx5-chinese-addons
+      ];
     };
   };
 
