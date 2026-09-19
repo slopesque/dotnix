@@ -41,10 +41,14 @@
           enable = true;
           withEnhancers = true;
           withMonitoring = true;
+          withSession = true;
         };
       };
 
-      graphical.hyprland.enable = true;
+      graphical.hyprland = {
+        enable = true;
+        withUWSM = true;
+      };
 
       hardware = {
         bluetooth.enable = true;
@@ -57,6 +61,7 @@
         greetd = {
           enable = true;
           initialUser = "shrek";
+          initialCommand = "${pkgs.uwsm}/bin/uwsm start hyprland.desktop";
         };
         plymouth = {
           enable = true;

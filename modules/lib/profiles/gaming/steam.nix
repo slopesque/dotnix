@@ -30,25 +30,37 @@ in
         example = true;
         description = "Add monitoring tools for Steam (Mangohud).";
       };
+
+      withSession = lib.mkEnableOption "Add Wayland session for Steam using Gamescope";
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    programs = {
-      gamemode.enable = cfg.withEnhancers;
+  config = lib.mkIf cfg.enable (
+    let
+      enableGamescope = cfg.withEnhancers || cfg.withSession;
+    in
+    {
+      programs = {
+        gamescope = {
+          enable = enableGamescope;
+          capSysNice = cfg.withSession;
+        };
 
-      steam = {
-        enable = true;
-        gamescopeSession.enable = cfg.withEnhancers;
+        gamemode.enable = cfg.withEnhancers;
+
+        steam = {
+          enable = true;
+          gamescopeSession.enable = enableGamescope;
+        };
       };
-    };
 
-    environment.systemPackages =
-      with lib;
-      with cfg;
-      with pkgs;
-      [
-        (mkIf withMonitoring mangohud)
-      ];
-  };
+      environment.systemPackages =
+        with lib;
+        with cfg;
+        with pkgs;
+        [
+          (mkIf withMonitoring mangohud)
+        ];
+    }
+  );
 }

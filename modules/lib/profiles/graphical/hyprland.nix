@@ -17,6 +17,8 @@ in
         example = true;
         description = "Enable Hyprland with my configuration on the system.";
       };
+
+      withUWSM = lib.mkEnableOption "Enable UWSM along with Hyprland.";
     };
   };
 
@@ -25,15 +27,12 @@ in
 
     programs.hyprland = {
       enable = true;
-      withUWSM = true;
+      withUWSM = cfg.withUWSM;
       xwayland.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
       kitty
     ];
-
-    services.greetd.settings.initial_session.command =
-      lib.mkIf cfg_greetd.enable "${pkgs.hyprland}/bin/start-hyprland";
   };
 }
