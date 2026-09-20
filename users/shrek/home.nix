@@ -65,7 +65,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  programs.btop.enable = true;
   programs.carapace.enable = true;
   programs.discord = {
     enable = true;

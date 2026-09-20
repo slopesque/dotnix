@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -53,6 +52,10 @@
       hardware = {
         bluetooth.enable = true;
         cuda.enable = true;
+        monitoring = {
+          enable = true;
+          withSysCap = true;
+        };
         nvidia.enable = true;
         video.enable = true;
       };
