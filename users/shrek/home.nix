@@ -137,6 +137,7 @@
       waylandFrontend = true;
       addons = with pkgs; [
         fcitx5-gtk
+        fcitx5-tokyonight
         qt6Packages.fcitx5-chinese-addons
       ];
     };
