@@ -77,6 +77,10 @@
           enable = true;
           vulkanSupport = true;
           cudaSupport = true;
+          service = {
+            enable = true;
+            port = 9741;
+          };
         };
       };
 
