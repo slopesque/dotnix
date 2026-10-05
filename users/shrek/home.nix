@@ -6,6 +6,25 @@
 # TODO: implement conditional implementation if :
 #           - system has config.my.profiles.graphical.wayland enabled
 #           - system has config.my.profiles.graphical.hyprland enabled
+let
+  waybarUnstable = pkgs.waybar.overrideAttrs (
+    finalAttrs: previousAttrs: {
+      src = pkgs.fetchFromGitHub {
+        owner = "Alexays";
+        repo = "Waybar";
+        rev = "323e66f51644d0562be54af3c21f368a4d61d321";
+        hash = "sha256-pe6h9T710ncxz3PbNfzmuWUjZ5kTw2emAvsWg+pqHsk=";
+      };
+
+      buildInputs =
+        previousAttrs.buildInputs
+        ++ (with pkgs; [
+          modemmanager
+          libcava
+        ]);
+    }
+  );
+in
 {
   home.username = "shrek";
   home.homeDirectory = "/home/shrek";
@@ -35,10 +54,13 @@
     hyprshot
     hyprshutdown
     hypryaml
+    jq
     nushell
     pi-coding-agent
+    playerctl
     rclone
     rustup
+    termdown
 
     bitwarden-desktop
     brave
@@ -95,7 +117,10 @@
     withRuby = false;
   };
   programs.uv.enable = true;
-  programs.waybar.enable = true;
+  programs.waybar = {
+    enable = true;
+    package = waybarUnstable;
+  };
 
   services.hypridle.enable = true;
 
