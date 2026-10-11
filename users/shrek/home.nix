@@ -12,8 +12,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "Alexays";
         repo = "Waybar";
-        rev = "323e66f51644d0562be54af3c21f368a4d61d321";
-        hash = "sha256-pe6h9T710ncxz3PbNfzmuWUjZ5kTw2emAvsWg+pqHsk=";
+        rev = "4e207a0cb51a9eb89b4245d90245721f5e39bf06";
+        hash = "sha256-0L1elPWYo9yKgEwpXWWVWQyPVU0SW36LkWUR26CksgU=";
       };
 
       buildInputs =
