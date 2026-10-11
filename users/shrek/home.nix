@@ -56,6 +56,7 @@ in
     hypryaml
     jq
     nushell
+    onefetch
     pi-coding-agent
     playerctl
     rclone
@@ -79,6 +80,7 @@ in
     thunderbird
     wvkbd
     xournalpp
+    yazi
 
     noto-fonts
     noto-fonts-cjk-sans
