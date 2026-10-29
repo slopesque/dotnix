@@ -49,12 +49,15 @@ in
     EDITOR = "nvim";
   };
   home.packages = with pkgs; [
+    bat
+    fzf
     hypridle
     hyprpaper
     hyprshot
     hyprshutdown
     hypryaml
     jq
+    libnotify
     nushell
     onefetch
     pi-coding-agent
@@ -62,6 +65,7 @@ in
     rclone
     rustup
     termdown
+    yazi
 
     bitwarden-desktop
     brave
@@ -69,7 +73,6 @@ in
     dunst
     evince
     grim
-    libnotify
     libreoffice
     pavucontrol
     pcmanfm
@@ -80,7 +83,6 @@ in
     thunderbird
     wvkbd
     xournalpp
-    yazi
 
     noto-fonts
     noto-fonts-cjk-sans
