@@ -6,7 +6,6 @@
 }@_:
 let
   cfg = config.my.profiles.graphical.hyprland;
-  cfg_greetd = config.my.profiles.login.greetd;
 in
 {
   options = {

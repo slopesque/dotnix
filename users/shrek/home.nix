@@ -138,8 +138,32 @@ in
   xdg = {
     enable = true;
 
-    configFile."openxr/1/active_runtime.json".source =
-      "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+    configFile = {
+      "openxr/1/active_runtime.json".source = "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+
+      "xdg-desktop-portal-termfilechooser/config" = {
+        force = true;
+        text = ''
+          [filechooser]
+          cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+          default_dir=$HOME/Downloads
+          env=TERMCMD=kitty --title=termfilechooser
+        '';
+      };
+    };
+
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [ xdg-desktop-portal-termfilechooser ];
+      config.gnome = {
+        default = [ "gnome" "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+      };
+      config.hyprland = {
+        default = [ "hyprland" "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+      };
+    };
 
     mimeApps = {
       enable = true;
