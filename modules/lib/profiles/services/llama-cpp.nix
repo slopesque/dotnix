@@ -56,10 +56,28 @@ in
 
   config = lib.mkIf cfg.enable (
     let
-      llama-cpp = pkgs.llama-cpp.override {
-        inherit (cfg) cudaSupport vulkanSupport;
-        blasSupport = cfg.cpuSupport;
-      };
+      llama-cpp =
+        let
+          base = pkgs.llama-cpp.override {
+            inherit (cfg) cudaSupport vulkanSupport;
+            blasSupport = cfg.cpuSupport;
+          };
+        in
+        if cfg.cudaSupport && cuda.architectures != [ ] then
+          base.overrideAttrs (
+            old:
+            let
+              oldFlags = (lib.filter (flag: !lib.hasInfix "CMAKE_CUDA_ARCHITECTURES" flag) old.cmakeFlags);
+              newFlags = [
+                (lib.cmakeFeature "CMAKE_CUDA_ARCHITECTURES" cuda.cmakeArchs)
+              ];
+            in
+            {
+              cmakeFlags = oldFlags ++ newFlags;
+            }
+          )
+        else
+          base;
       serviceExecStart = lib.mkIf cfg.service.enable (
         lib.strings.join " " [
           "${llama-cpp}/bin/llama-server"

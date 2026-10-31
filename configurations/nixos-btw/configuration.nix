@@ -56,7 +56,10 @@
 
       hardware = {
         bluetooth.enable = true;
-        cuda.enable = true;
+        cuda = {
+          enable = true;
+          architectures = [ "12.0" ];
+        };
         monitoring = {
           enable = true;
           withSysCap = true;
