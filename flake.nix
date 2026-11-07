@@ -34,10 +34,31 @@
         ];
       };
 
-      devSystem = "x86_64-linux";
+      lib = import ./lib {
+        inherit nixpkgs;
+        defaultSystems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+      };
+
+      perSystemDefs = lib.eachDefaultSystem (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          bravePkgs = pkgs.callPackage ./pkgs/brave { };
+        in
+        {
+          devShells.default = pkgs.callPackage ./shell.nix { };
+          formatter = pkgs.nixfmt;
+          packages = { inherit (bravePkgs) brave brave-origin; };
+        }
+      );
+
+      globalDeps = {
+        inherit lib;
+        nixosConfigurations = import ./configurations allInputs;
+      };
     in
-    {
-      formatter.${devSystem} = nixpkgs.legacyPackages.${devSystem}.nixfmt;
-      nixosConfigurations = import ./configurations allInputs;
-    };
+    globalDeps // perSystemDefs;
 }
