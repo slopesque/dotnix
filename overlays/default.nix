@@ -1,3 +1,6 @@
 {
-  imports = [ ./hypryaml.nix ];
+  imports = [
+    ./hypryaml.nix
+    ./pkgs.nix
+  ];
 }
