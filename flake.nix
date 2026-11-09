@@ -28,7 +28,7 @@
       allInputs = inputs // {
         modules = [
           home-manager.nixosModules.home-manager
-          ./modules
+          ./modules/nixos
           ./overlays
           ./users
         ];
@@ -54,11 +54,10 @@
           packages = { inherit (bravePkgs) brave brave-origin; };
         }
       );
-
-      globalDeps = {
-        inherit lib;
-        nixosConfigurations = import ./configurations allInputs;
-      };
     in
-    globalDeps // perSystemDefs;
+    {
+      inherit lib;
+      inherit (perSystemDefs) devShells formatter packages;
+      nixosConfigurations = import ./configurations/nixos allInputs;
+    };
 }
