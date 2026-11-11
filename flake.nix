@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprnix = {
+      url = "github:hyprwm/hyprnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dotfiles = {
       url = "github:slopesque/dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,12 +26,18 @@
       self,
       nixpkgs,
       home-manager,
+      hyprnix,
       ...
     }@inputs:
     let
+      hyprlandOverlay = {
+        nixpkgs.overlays = [ hyprnix.overlays.hyprland ];
+      };
+
       allInputs = inputs // {
         modules = [
           home-manager.nixosModules.home-manager
+          hyprlandOverlay
           ./modules/nixos
           ./overlays
           ./users
