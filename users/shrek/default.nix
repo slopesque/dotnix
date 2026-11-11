@@ -42,6 +42,7 @@ in
     home-manager.users.shrek = {
       imports = [
         ./home.nix
+        ../../modules/home-manager
         dotfiles.homeModules.${system}.dotfiles
       ];
     };
