@@ -1,11 +1,16 @@
 {
-  description = "A flake for a pretty nice NixOS configuration.";
+  description = "A flake for a pretty nice personal Nix ecosystem.";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     hyprnix = {
       url = "github:hyprwm/hyprnix";
@@ -14,6 +19,7 @@
     dotfiles = {
       url = "github:slopesque/dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     hypryaml = {
       url = "github:slopesque/hypryaml/develop";
@@ -69,5 +75,6 @@
       inherit lib;
       inherit (perSystemDefs) devShells formatter packages;
       nixosConfigurations = import ./configurations/nixos allInputs;
+      nixOnDroidConfigurations = import ./configurations/nix-on-droid allInputs;
     };
 }

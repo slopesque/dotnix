@@ -9,7 +9,15 @@ let
 in
 {
   options = {
-    my.profiles.explorer.enable = lib.mkEnableOption "Enable my file explorer configuration on the user configuration.";
+    my.profiles.explorer = {
+      enable = lib.mkEnableOption "Enable my file explorer configuration on the user configuration.";
+      withPortal = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        example = true;
+        description = "Configure desktop portal configurations for the file explorer.";
+      };
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -22,7 +30,7 @@ in
     xdg = {
       enable = true;
 
-      configFile = {
+      configFile = lib.mkIf cfg.withPortal {
         "xdg-desktop-portal-termfilechooser/config" = {
           force = true;
           text = ''
@@ -34,7 +42,7 @@ in
         };
       };
 
-      portal = {
+      portal = lib.mkIf cfg.withPortal {
         enable = true;
         extraPortals = with pkgs; [ xdg-desktop-portal-termfilechooser ];
         config.gnome = {
