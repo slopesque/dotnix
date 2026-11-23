@@ -13,6 +13,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.my-dotfiles.packages.agents.pi.enable = true;
     home.packages = with pkgs; [ pi-coding-agent ];
   };
 }
