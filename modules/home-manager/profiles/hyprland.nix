@@ -6,23 +6,6 @@
 }:
 let
   cfg = config.my.profiles.hyprland;
-  waybarUnstable = pkgs.waybar.overrideAttrs (
-    finalAttrs: previousAttrs: {
-      src = pkgs.fetchFromGitHub {
-        owner = "Alexays";
-        repo = "Waybar";
-        rev = "4e207a0cb51a9eb89b4245d90245721f5e39bf06";
-        hash = "sha256-0L1elPWYo9yKgEwpXWWVWQyPVU0SW36LkWUR26CksgU=";
-      };
-
-      buildInputs =
-        previousAttrs.buildInputs
-        ++ (with pkgs; [
-          modemmanager
-          libcava
-        ]);
-    }
-  );
 in
 {
   options = {
